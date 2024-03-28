@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ae258f236edda45a7ca9a90385c66a, type: 3}
+  m_Name: Room_No_Wall_1_Pillar_Double_Height
+  m_EditorClassIdentifier: 
+  _name: Room_No_Wall_1_Pillar
+  id: 022222222
+  segment: {fileID: 1869134584506083028, guid: 043c9191cd127da479d607eca83641dc, type: 3}
+  lightRotationOffset: 0

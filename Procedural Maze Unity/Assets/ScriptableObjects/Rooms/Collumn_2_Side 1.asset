@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ae258f236edda45a7ca9a90385c66a, type: 3}
+  m_Name: Collumn_2_Side 1
+  m_EditorClassIdentifier: 
+  _name: Collumn_1_Side
+  id: 202222020
+  segment: {fileID: 3697403125259874841, guid: df95c5bacef79c146b7026a4856dcb73, type: 3}
+  lightRotationOffset: 0
