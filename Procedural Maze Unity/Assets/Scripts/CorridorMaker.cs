@@ -26,7 +26,7 @@ public class CorridorMaker : DungeonSegmentMaker
 
     public void Generate()
     {
-        Generate(Random.Range(1, size.x), Random.Range(1, size.y));
+        Generate(size.x/2, size.y/2);
     }
 
     private void Generate(int x, int z)
