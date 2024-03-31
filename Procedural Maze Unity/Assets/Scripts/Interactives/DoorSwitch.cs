@@ -8,6 +8,11 @@ public class DoorSwitch : MonoBehaviour, IInteractive
     [SerializeField] private Transform interactiveIcon;
     private bool doorIsClose = true;
 
+    public void HideIcon()
+    {
+        interactiveIcon.gameObject.SetActive(false);
+    }
+
     public void Interact()
     {
         doorIsClose = !doorIsClose;

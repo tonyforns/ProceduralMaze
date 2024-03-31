@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class TreasureChest : IInteractive
 {
-    
+    public void HideIcon()
+    {
+    }
+
     public void Interact()
     {
     }

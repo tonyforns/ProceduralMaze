@@ -6,6 +6,7 @@ public class Character : MonoBehaviour
 {
     private IInteractive interactiveObject;
 
+    private IInteractive interactiveObjectShow;
     private List<string> bag = new List<string>(); 
     void Start()
     {
@@ -52,10 +53,16 @@ public class Character : MonoBehaviour
         {
             if (collider.gameObject.TryGetComponent<IInteractive>(out interactiveObject))
             {
-                interactiveObject.ShowIcon();
+                interactiveObjectShow = interactiveObject;
+                interactiveObjectShow.ShowIcon();
                 return;
             }
         }
+        if (interactiveObjectShow != null)
+        {
+            interactiveObjectShow.HideIcon();
+            interactiveObjectShow = null;
+        } 
     }
 
     public void HandleInteractiveAction()
