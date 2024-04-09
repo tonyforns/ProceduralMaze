@@ -73,36 +73,6 @@ public class Dungeon : Singleton<Dungeon>
         //HandleMap();
     }
 
-    private void HandleMap()
-    {
-        int x = (int)character.position.x / scale;
-        int z = (int)character.position.z / scale;
-        Vector2Int currentPosition = new Vector2Int(x, z);
-        if(characterPosition == currentPosition) { return; }
-        Vector2Int direction = characterPosition - currentPosition;
-        /*
-        for (int i = x - 3; i < x + 3; i++)
-        {
-            if (z - 4 < 0) break;
-            if (z + 4 >= size.x) break;
-            if (i < 0) continue;
-            if (i >= size.y) continue;
-            mapDef[i, z + direction.y * 4].segmentInScene.gameObject.SetActive(false);
-            mapDef[i, z - direction.y * 4].segmentInScene.gameObject.SetActive(true);
-        }
-
-        for (int i = z - 3; i < z + 3; i++)
-        {
-            if (x - 4 < 0) break;
-            if (x + 4 >= size.x) break;
-            if (i < 0) continue;
-            if (i >= size.x) continue;
-            mapDef[x + direction.y * 4, i ].segmentInScene.gameObject.SetActive(false);
-            mapDef[x - direction.y * 4, i ].segmentInScene.gameObject.SetActive(true);
-        }*/
-        ShowMapSgment(x, z);
-
-    }
 
     private void SetChracterPosition()
     {
@@ -191,18 +161,6 @@ public class Dungeon : Singleton<Dungeon>
         }
     }
 
-    private void HideMap()
-    {
-        for (int x = 0; x < size.x; x++)
-        {
-            for (int z = 0; z < size.y; z++)
-            {
-                if (map[x, z] == 0) continue;
-                mapDef[x,z].segmentInScene.gameObject.SetActive(false);
-            }
-        }
-    }
-
     private void ShowMapSgment(int x, int z)
     {
         for (int i = x - 3; i < x + 3; i++)
@@ -230,12 +188,41 @@ public class Dungeon : Singleton<Dungeon>
         return new Vector3(position.x * scale, transform.position.y, position.y * scale);
     }
     
-   private Vector2Int GetNextDungeonSegmentWithId(string id, Vector2Int position, Vector2Int direction)
+   public Vector2Int GetNextDungeonSegmentWithId(string id, Vector2Int position, Vector2Int direction)
    {
-        if (mapDef[position.x + direction.x, position.y + direction.y].idString == id)
+        if (PositionBelongToDungeon(position + direction))
         {
-
+            if(mapDef[position.x + direction.x, position.y + direction.y].id == 0)
+            {
+                return Vector2Int.one * -1;
+            }
+            if (mapDef[position.x + direction.x, position.y + direction.y].dungeonSegmentDef.id == id )
+            {
+                return position + direction;
+            }
+            return GetNextDungeonSegmentWithId(id, position + direction, direction);
         }
-        return position;
+        return Vector2Int.one * -1;
    }
+
+    public Vector2Int GetNextDungeonSegment(Vector2Int position, Vector2Int direction)
+    {
+        direction *= -1;
+        direcctions.Shuffle();
+        foreach (Vector2Int dungeonDirection in direcctions)
+        {
+            if (direction != dungeonDirection)
+            {
+                if (mapDef[position.x + dungeonDirection.x, position.y + dungeonDirection.y].id != 0) return position + dungeonDirection;
+            }
+        }
+        return Vector2Int.one * -1;
+
+    }
+
+    public bool PositionBelongToDungeon(Vector2Int position)
+    {
+        return position.x > 0 && position.x < size.x && position.y > 0 && position.y < size.y;
+    }
+    
 }

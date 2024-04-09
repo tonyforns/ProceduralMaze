@@ -1,18 +1,77 @@
+using System;
 using UnityEngine;
 
 public class Stalker : MonoBehaviour
 {
+    public EventHandler OnLookingAtCharacter;
+    public EventHandler OnStopLookingAtCharacter;
+
     [SerializeField] private Character character;
+    [SerializeField] private LayerMask characterMask;
+    [SerializeField] private LayerMask obstacleMask;
+
+    [SerializeField] private string cornerId = "010011000";
+
+    private float timer;
+    private float spawnTimerAmount = 5;
+    private bool isLooking;
 
 
+    private void Start()
+    {
+        isLooking = false;
+        Spawn();
+        timer = spawnTimerAmount;
+    }
     private void Update()
     {
-        StalkCharacter();
+        timer -= Time.deltaTime;
+        if(timer < 0)
+        {
+            Spawn();
+            timer = spawnTimerAmount;
+        }
+        LookAtCharacter();
+
+
     }
-    private void StalkCharacter()
+    public void Spawn()
     {
-        Vector2Int dungeonPosition = Dungeon.Instance.WorldPositionToDungeon(character.transform.position);
-        Vector2Int newPosition = dungeonPosition + new Vector2Int(Mathf.RoundToInt(character.transform.forward.x), Mathf.RoundToInt(character.transform.forward.z)) * 2;
-        transform.position = Dungeon.Instance.DungeonPositionToWorld(newPosition);
+        Vector2Int characterDugeonPosition = Dungeon.Instance.WorldPositionToDungeon(character.transform.position);
+        Vector2Int characterForward = new Vector2Int(Mathf.RoundToInt(character.transform.forward.x), Mathf.RoundToInt(character.transform.forward.z));
+
+        Vector2Int stalkerDungeonPosition = Dungeon.Instance.GetNextDungeonSegmentWithId(cornerId, characterDugeonPosition, characterForward);
+
+        if (stalkerDungeonPosition != Vector2Int.one * -1)
+        {
+            stalkerDungeonPosition = Dungeon.Instance.GetNextDungeonSegment(stalkerDungeonPosition, characterForward);
+            Vector3 stalkerNewPosition = Dungeon.Instance.DungeonPositionToWorld(stalkerDungeonPosition);
+            transform.position = stalkerNewPosition;
+        }
+    }
+
+    public void LookAtCharacter()
+    {
+        transform.LookAt(character.transform);
+        Debug.DrawLine(transform.position + Vector3.up, transform.position + transform.forward * 15f, Color.red);
+
+        if (Physics.Raycast(transform.position + Vector3.up, transform.forward, 15f, characterMask))
+        {
+            if(!Physics.Raycast(transform.position + Vector3.up, transform.forward, Vector3.Distance(transform.position, character.transform.position), obstacleMask)) {
+                if (!isLooking)
+                {
+                    isLooking = true;
+                    OnLookingAtCharacter?.Invoke(this, EventArgs.Empty);
+                    Debug.Log("StartLooking");
+                }
+                return;
+            } 
+        }
+        if (isLooking)
+        {
+            isLooking = false;
+            OnStopLookingAtCharacter?.Invoke(this, EventArgs.Empty);
+            Debug.Log("StopLooking");
+        }
     }
 }
