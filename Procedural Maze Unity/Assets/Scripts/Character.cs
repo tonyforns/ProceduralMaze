@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,12 @@ public class Character : MonoBehaviour
     private List<string> bag = new List<string>(); 
     void Start()
     {
-        
+        SanitySystem.Instance.OnNoSanity += SanitySystem_OnNoSanity;
+    }
+
+    private void SanitySystem_OnNoSanity(object sender, EventArgs e)
+    {
+        gameObject.SetActive(false);
     }
 
     public void AddItemToBag(string item)

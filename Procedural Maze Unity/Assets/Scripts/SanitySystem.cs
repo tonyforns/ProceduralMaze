@@ -50,7 +50,7 @@ public class SanitySystem : Singleton<SanitySystem>
     {
         if (IsSanityDecreasing())
         {
-            sanityAmount -= Time.deltaTime;
+            sanityAmount -= Time.deltaTime * enemyList.Count;
         }
         if(sanityAmount < 0)
         {

@@ -5,6 +5,8 @@ public class Ghost : Enemy
 {
     private Transform character;
     [SerializeField] private float speed = 5;
+
+    private Vector3 wanderTarger;
     private void Start()
     {
         Spawn();
@@ -17,7 +19,8 @@ public class Ghost : Enemy
     private void Spawn()
     {
         transform.position =  Dungeon.Instance.GetRandomRoomWorldPosition();
-        transform.rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
+        wanderTarger = Dungeon.Instance.GetRandomWorldPositionInTheSameRoom(transform.position);
+        transform.LookAt(wanderTarger);
     }
 
     private void Wander()
@@ -25,14 +28,15 @@ public class Ghost : Enemy
         if(IsCharacterOnSight())
         {
             ChaseCharacter();
-        }
-
-        if(IsObstacleClose())
-        {
-            Spawn();
             return;
         }
 
+        if(ReachedPosition() || IsObstacleClose())
+        {
+            wanderTarger = Dungeon.Instance.GetRandomWorldPositionInTheSameRoom(transform.position);
+        }
+
+        transform.LookAt(wanderTarger);
         transform.position += transform.forward * speed * Time.deltaTime;
     }
 
@@ -40,6 +44,7 @@ public class Ghost : Enemy
     private void ChaseCharacter()
     {
         transform.LookAt(new Vector3(character.position.x, 0 , character.position.z));
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
     private bool IsCharacterOnSight()
     {
@@ -73,7 +78,11 @@ public class Ghost : Enemy
 
     private bool IsObstacleClose()
     {
-        return Physics.Raycast(transform.position + Vector3.up, transform.forward, 2f, DungeonSettings.ObstacleMask);
+        return Physics.Raycast(transform.position + Vector3.up, transform.forward, 1f, DungeonSettings.ObstacleMask);
+    }
 
+    private bool ReachedPosition()
+    {
+        return Vector3.Distance(transform.position, wanderTarger) < 0.1f;
     }
 }

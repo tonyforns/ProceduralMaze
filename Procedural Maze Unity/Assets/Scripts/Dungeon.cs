@@ -262,4 +262,21 @@ public class Dungeon : Singleton<Dungeon>
         }
         return GetRandomRoomWorldPosition();
     }
+
+    public Vector3 GetRandomWorldPositionInTheSameRoom(Vector3 position)
+    {
+        Vector2Int dungeonPosition = WorldPositionToDungeon(position);
+
+        while(true)
+        {
+            Vector2Int newPosition = new Vector2Int(dungeonPosition.x + Random.Range(-10, 10), dungeonPosition.y + Random.Range(-10, 10));
+
+            if (!PositionBelongToDungeon(newPosition)) continue;
+            
+            if (mapDef[newPosition.x, newPosition.y].id == 2)
+            {
+                return DungeonPositionToWorld(newPosition);
+            }
+        }
+    }
 }

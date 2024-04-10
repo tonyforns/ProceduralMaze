@@ -21,10 +21,11 @@ public class Stalker : Enemy
     private void Update()
     {
         timer -= Time.deltaTime;
-        if(timer < 0)
+        if(timer < 0 && !IsCharacterOnSight())
         {
             Spawn();
             timer = spawnTimerAmount;
+            return;
         }
         LookAtCharacter();
 
@@ -48,9 +49,8 @@ public class Stalker : Enemy
     public void LookAtCharacter()
     {
         transform.LookAt(new Vector3(character.transform.position.x, 0, character.transform.position.z));
-        Debug.DrawLine(transform.position + Vector3.up, transform.position + transform.forward * 15f, Color.red);
 
-        if (Physics.Raycast(transform.position + Vector3.up, transform.forward, 15f, DungeonSettings.CharacterMask))
+        if (IsCharacterOnSight())
         {
             if(!Physics.Raycast(transform.position + Vector3.up, transform.forward, Vector3.Distance(transform.position, character.transform.position), DungeonSettings.ObstacleMask)) {
                 if (!isLooking)
@@ -66,5 +66,10 @@ public class Stalker : Enemy
             isLooking = false;
             OnStopLookingAtCharacter?.Invoke(this, EventArgs.Empty);
         }
+    }
+
+    private bool IsCharacterOnSight()
+    {
+        return Physics.Raycast(transform.position + Vector3.up, transform.forward, 15f, DungeonSettings.CharacterMask);
     }
 }

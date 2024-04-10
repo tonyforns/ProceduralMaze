@@ -5,6 +5,9 @@ public class SanityFountain : MonoBehaviour, IInteractive
 {
 
     [SerializeField] private Transform icon;
+    [SerializeField] private Transform fountainAura;
+    
+
     public void HideIcon()
     {
         icon.gameObject.SetActive(false);
@@ -14,7 +17,10 @@ public class SanityFountain : MonoBehaviour, IInteractive
     {
         SanitySystem.Instance.IncreaseSanity();
         HideIcon();
-        gameObject.SetActive(false);
+        Collider collider = GetComponent<Collider>();
+        collider.enabled = false;
+
+        fountainAura.gameObject.SetActive(false);
     }
 
     public void Interact(Character character)
