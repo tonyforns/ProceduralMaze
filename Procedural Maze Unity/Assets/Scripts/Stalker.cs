@@ -1,14 +1,9 @@
 using System;
 using UnityEngine;
 
-public class Stalker : MonoBehaviour
+public class Stalker : Enemy
 {
-    public EventHandler OnLookingAtCharacter;
-    public EventHandler OnStopLookingAtCharacter;
-
     [SerializeField] private Character character;
-    [SerializeField] private LayerMask characterMask;
-    [SerializeField] private LayerMask obstacleMask;
 
     [SerializeField] private string cornerId = "010011000";
 
@@ -52,17 +47,16 @@ public class Stalker : MonoBehaviour
 
     public void LookAtCharacter()
     {
-        transform.LookAt(character.transform);
+        transform.LookAt(new Vector3(character.transform.position.x, 0, character.transform.position.z));
         Debug.DrawLine(transform.position + Vector3.up, transform.position + transform.forward * 15f, Color.red);
 
-        if (Physics.Raycast(transform.position + Vector3.up, transform.forward, 15f, characterMask))
+        if (Physics.Raycast(transform.position + Vector3.up, transform.forward, 15f, DungeonSettings.CharacterMask))
         {
-            if(!Physics.Raycast(transform.position + Vector3.up, transform.forward, Vector3.Distance(transform.position, character.transform.position), obstacleMask)) {
+            if(!Physics.Raycast(transform.position + Vector3.up, transform.forward, Vector3.Distance(transform.position, character.transform.position), DungeonSettings.ObstacleMask)) {
                 if (!isLooking)
                 {
                     isLooking = true;
                     OnLookingAtCharacter?.Invoke(this, EventArgs.Empty);
-                    Debug.Log("StartLooking");
                 }
                 return;
             } 
@@ -71,7 +65,6 @@ public class Stalker : MonoBehaviour
         {
             isLooking = false;
             OnStopLookingAtCharacter?.Invoke(this, EventArgs.Empty);
-            Debug.Log("StopLooking");
         }
     }
 }

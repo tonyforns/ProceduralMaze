@@ -25,6 +25,7 @@ public class Dungeon : Singleton<Dungeon>
     [SerializeField] private Transform cellingLiht;
 
     [SerializeField] private Transform treasureChest;
+    [SerializeField] private List<Transform> interactiveObjectList;
 
     [SerializeField] private Vector2Int characterPosition;
 
@@ -61,7 +62,8 @@ public class Dungeon : Singleton<Dungeon>
         DrawMap();
 
         DrawLights();
-        SetTreasureChest();
+        //SetTreasureChest();
+        SetInteractiveObjects();
 
         //HideMap();
 
@@ -100,6 +102,25 @@ public class Dungeon : Singleton<Dungeon>
             for (int z = 0; z < size.y; z++)
             {
                 map[x, z] = 0;
+            }
+        }
+    }
+
+    private void SetInteractiveObjects()
+    {
+        for (int x = 1; x < size.x; x++)
+        {
+            for (int z = 1; z < size.y; z++)
+            {
+                if (map[x, z] == 0) continue;
+                if (mapDef[x, z].dungeonSegmentDef.name.Contains("Dead_End"))
+                {
+                    Transform interactiveObjectPrefab = interactiveObjectList[Random.Range(0, interactiveObjectList.Count)];
+                    Transform interactiveObject = Instantiate(interactiveObjectPrefab);
+                    interactiveObject.position = new Vector3(x * scale, 0, z * scale);
+                    interactiveObject.rotation = Quaternion.Euler(0, mapDef[x, z].rotation, 0);
+                }
+
             }
         }
     }
@@ -225,4 +246,20 @@ public class Dungeon : Singleton<Dungeon>
         return position.x > 0 && position.x < size.x && position.y > 0 && position.y < size.y;
     }
     
+
+    public Vector3 GetRandomRoomWorldPosition()
+    {
+
+        for (int x = Random.Range(0, size.x); x < size.x ; x++)
+        {
+            for (int z = Random.Range(0, size.y); z < size.y; z++)
+            {
+                if (mapDef[x,z].id == 2 )
+                {
+                    return DungeonPositionToWorld(new Vector2Int(x, z));
+                }
+            }
+        }
+        return GetRandomRoomWorldPosition();
+    }
 }
