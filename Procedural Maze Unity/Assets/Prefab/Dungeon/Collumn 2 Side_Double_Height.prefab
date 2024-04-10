@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3697403125259874841}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collumn 2 Side_Double_Height
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8822963365177199426}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: VIsual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,6 +126,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pillar_2_Double_Height
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ecd68706a5483594e86631acc188e600,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

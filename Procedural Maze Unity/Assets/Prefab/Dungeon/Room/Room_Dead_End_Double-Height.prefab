@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5261071529106858860}
   - component: {fileID: 6624106884370249907}
   - component: {fileID: 6358074387789659032}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8475556241351402554}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Room_Dead_End_Double-Height
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 6888491683257483707}
   - component: {fileID: 2204729842389842868}
   - component: {fileID: 50018779966520244}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pillar_1.016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 6887129254786850651}
   - component: {fileID: 8680416533737221009}
   - component: {fileID: 8082674682431637299}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Room_Dead_End_Double_Height
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 4868053329730354602}
   - component: {fileID: 8676538734931037129}
   - component: {fileID: 347931420340026435}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roof_Plane.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7343688585371287491}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visua
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   - component: {fileID: 2885180746003710497}
   - component: {fileID: 8623186128031891055}
   - component: {fileID: 6139518665605029994}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}

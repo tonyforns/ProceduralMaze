@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4838205620245780168}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 744877073358994900}
   - component: {fileID: 4260199143828375887}
   - component: {fileID: 7789435431937209792}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3100053849472894490}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door__Double_Height
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 2632269106733704544}
   - component: {fileID: 7273979169630362943}
   - component: {fileID: 7268899540968704903}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 960962994546747414}
   - component: {fileID: 1729025048933730496}
   - component: {fileID: 3760487171936186403}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 2767508580926305796}
   - component: {fileID: 3660262845994639581}
   - component: {fileID: 562419649918295642}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 3004455657786068199}
   - component: {fileID: 4403048339152970534}
   - component: {fileID: 9134906829652977943}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -624,7 +624,7 @@ GameObject:
   - component: {fileID: 422024656600106944}
   - component: {fileID: 4919386798810170384}
   - component: {fileID: 6989080912221440727}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,7 +760,7 @@ GameObject:
   - component: {fileID: 6345481471873614934}
   - component: {fileID: 5086340609604050409}
   - component: {fileID: 8998519923279482197}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,6 +915,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Door_Frame_With_Door_Double_Height
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 118e419a1b35f8d4aa270adac46861c1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5092708244707826562, guid: 118e419a1b35f8d4aa270adac46861c1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997447793177591184, guid: 118e419a1b35f8d4aa270adac46861c1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

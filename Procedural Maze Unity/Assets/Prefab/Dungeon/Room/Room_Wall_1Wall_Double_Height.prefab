@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6319415956085769965}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3776187694837255259}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Room_Wall_1Wall_Double_Height
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,10 +122,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7602289632093794597, guid: 27d7d599e92afda4792bfd97d8905e05,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -1224975320036600885, guid: 27d7d599e92afda4792bfd97d8905e05,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 267565006149323116, guid: 27d7d599e92afda4792bfd97d8905e05,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 27d7d599e92afda4792bfd97d8905e05,
         type: 3}
       propertyPath: m_Name
       value: Room_1Wall_Double_Height
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 27d7d599e92afda4792bfd97d8905e05,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

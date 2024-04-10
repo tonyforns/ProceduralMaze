@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8765510433036552170}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1869134584506083028}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Room_No_Wall_1_Pillar_Double_Height
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,10 +122,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2478041926772190340, guid: e1fbf1069adc9114594836b2607cc7bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e1fbf1069adc9114594836b2607cc7bb,
         type: 3}
       propertyPath: m_Name
       value: Room_No_Wall_1_Pillar_Double_Height
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e1fbf1069adc9114594836b2607cc7bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7932576338383720205, guid: e1fbf1069adc9114594836b2607cc7bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6214112575920761108}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1962030239531154714}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,6 +127,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: 8d3cab22ea5b8904f83abfaed71168c2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -4292154010595695564, guid: 8d3cab22ea5b8904f83abfaed71168c2,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -151,6 +156,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Door_Frame_With_Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8d3cab22ea5b8904f83abfaed71168c2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7476331835663070067, guid: 8d3cab22ea5b8904f83abfaed71168c2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
