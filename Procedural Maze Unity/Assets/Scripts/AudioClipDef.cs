@@ -5,7 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AudioClipDef", menuName = "SO/AudioClipDef")]
 public class AudioClipDef : ScriptableObject
 {
-    public string clipName;
+
+    public enum clipsName{
+        MainTheme,
+        Adrenaline_Low,
+        Adrenaline_High,
+        Adrenaline_Mid,
+        Stone_Wall
+
+    }
+
+    public clipsName clipName;
     public AudioClip clip;
     public bool loop;
 }

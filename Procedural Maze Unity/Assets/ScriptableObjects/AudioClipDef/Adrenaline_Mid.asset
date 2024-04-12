@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94779a871b43cd2438831a70ca9fe895, type: 3}
   m_Name: Adrenaline_Mid
   m_EditorClassIdentifier: 
-  clipName: MainTheme
-  clip: {fileID: 8300000, guid: a97c46c19f937104993f61961039cf8a, type: 3}
+  clipName: 3
+  clip: {fileID: 8300000, guid: b6f31f15b24fd794fa16c84b801e4693, type: 3}
   loop: 1

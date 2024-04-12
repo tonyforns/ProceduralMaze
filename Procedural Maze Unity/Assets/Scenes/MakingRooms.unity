@@ -1271,9 +1271,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e988e3f91331f66479e6ce6faac4657c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clipList: []
+  clipList:
+  - {fileID: 11400000, guid: 9d5791c4f112a62468c891a99a7336e5, type: 2}
+  - {fileID: 11400000, guid: eeaf116f100f55a4d9ca68003b85327d, type: 2}
+  - {fileID: 11400000, guid: 8ca2cdc188b68f24e9998eafa1b18ce2, type: 2}
+  - {fileID: 11400000, guid: 0d7df65e323e63649b4fd2b6a0c4a7dc, type: 2}
   mainTheme: {fileID: 11400000, guid: 27e9237e08310f848b0fb3d7b379216d, type: 2}
   mainAudioSource: {fileID: 0}
+  adrenalineAudioSource: {fileID: 0}
+  audioSourceList: []
 --- !u!4 &1053828664
 Transform:
   m_ObjectHideFlags: 0

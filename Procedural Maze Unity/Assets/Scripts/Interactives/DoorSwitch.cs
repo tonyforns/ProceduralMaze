@@ -21,6 +21,7 @@ public class DoorSwitch : MonoBehaviour, IInteractive
         {
             doorController.Open();
         }
+        SoundSystem.Instance.PlayClip(AudioClipDef.clipsName.Stone_Wall);
     }
 
     public void Interact(Character character)
