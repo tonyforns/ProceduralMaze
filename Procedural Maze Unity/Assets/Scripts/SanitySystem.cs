@@ -34,10 +34,18 @@ public class SanitySystem : Singleton<SanitySystem>
     private void Stalker_OnStopLookingAtCharacter(object sender, EventArgs e)
     {
         enemyList.Remove(sender as Enemy);
+        if(enemyList.Count == 0)
+        {
+            SoundSystem.Instance.StopAdrenalineClip();
+        }
     }
 
     private void Stalker_OnLookingAtCharacter(object sender, EventArgs e)
     {
+        if(enemyList.Count == 0)
+        {
+            SoundSystem.Instance.PlayAdrenalineClip();
+        }
         enemyList.Add(sender as Enemy);
     }
 
