@@ -48,7 +48,7 @@ public class SoundSystem : Singleton<SoundSystem>
         AudioSource audioSource = GetAudioSource();
         if(!audioClipDefDictionary.TryGetValue(clipName, out AudioClipDef audioClipDef))
         {
-            Debug.LogError("AudioClip doesn't exist: " + nameof(clipName));
+            Debug.LogError("AudioClip doesn't exist or load in the script: " + nameof(clipName));
             return;
         }
         SetAudioSource(audioSource, audioClipDef);
